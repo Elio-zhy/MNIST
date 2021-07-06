@@ -1,0 +1,1 @@
+del *.synctex(busy) *.aux *.bbl *.blg *.log *.synctex.gz *.fls *.fdb_latexmk *.out
