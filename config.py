@@ -13,7 +13,7 @@ MNIST_INFO = {
 BATCH_SIZE_TRAIN = 100
 BATCH_SIZE_TEST = 1000
 
-N_EPOCHS = 100
+N_EPOCHS = 25
 
 # training related parameters
 PATCH_SIZE = 7
@@ -22,3 +22,7 @@ DEPTH = 6
 HEADS = 8
 MLP_DIM = 128
 LR = 0.003
+
+# save model
+SAVE = True
+MODEL_PATH = os.path.join(os.getcwd(), 'parameters.pkl')

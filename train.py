@@ -5,7 +5,7 @@ from torch import optim
 from vit_pytorch import ViT
 from vit_pytorch.dino import MLP
 
-from config import N_EPOCHS, PATCH_SIZE, DEPTH, DIM, HEADS, MLP_DIM, LR, MNIST_INFO
+from config import N_EPOCHS, PATCH_SIZE, DEPTH, DIM, HEADS, MLP_DIM, LR, MNIST_INFO, SAVE, MODEL_PATH
 from load_data import load_data
 
 
@@ -72,6 +72,9 @@ def train(train_loader, test_loader, patch_size, dim, depth, heads, mlp_dim, lr)
         evaluate(model, test_loader, test_loss_history)
 
     print('Execution time:', '{:5.2f}'.format(time.time() - start_time), 'seconds')
+
+    if SAVE:
+        torch.save(model.state_dict(), MODEL_PATH)
 
 
 if __name__ == '__main__':
