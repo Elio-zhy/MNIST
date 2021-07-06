@@ -53,13 +53,39 @@ Transformer是自然语言处理（Natural Language Processing, NLP）中常见�
     \label{fig:forward}
 \end{figure}
 
-如图
+如图~\ref{fig:train-epoch}所示是训练一个epoch的代码。
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{train-epoch.png}
     \caption{train\_epoch代码}
     \label{fig:train-epoch}
+\end{figure}
+
+\chapter{结果}
+经过25个epoch的训练后效果如图~\ref{fig:result}所示。
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{result.png}
+    \caption{result}
+    \label{fig:result}
+\end{figure}
+
+\graphicspath{{../}}
+train loss如图~\ref{fig:train-loss}所示。
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{train-loss.png}
+    \caption{train loss}
+    \label{fig:train-loss}
+\end{figure}
+
+test loss如图~\ref{fig:test-loss}所示。
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{test-loss.png}
+    \caption{test loss}
+    \label{fig:test-loss}
 \end{figure}
 
 \bibliographystyle{gbt7714-numerical}
