@@ -2,7 +2,23 @@ import os
 
 
 MNIST_PATH = os.path.join(os.getcwd(), 'MNIST')
-MNIST_MEAN = 0.1307
-MNIST_STD = 0.3081
+MNIST_INFO = {
+    'MEAN': 0.1307,
+    'STD': 0.3081,
+    'IMAGE_SIZE': 28,
+    'NUM_CLASSES': 10,
+    'CHANNELS': 1
+}
+
 BATCH_SIZE_TRAIN = 100
 BATCH_SIZE_TEST = 1000
+
+N_EPOCHS = 100
+
+# training related parameters
+PATCH_SIZE = 7
+DIM = 64
+DEPTH = 6
+HEADS = 8
+MLP_DIM = 128
+LR = 0.003
