@@ -4,8 +4,9 @@ import torch.nn.functional as F
 from torch import optim
 from vit_pytorch import ViT
 from vit_pytorch.dino import MLP
+import matplotlib.pyplot as plt
 
-from config import N_EPOCHS, PATCH_SIZE, DEPTH, DIM, HEADS, MLP_DIM, LR, MNIST_INFO, SAVE, MODEL_PATH
+from config import N_EPOCHS, PATCH_SIZE, DEPTH, DIM, HEADS, MLP_DIM, LR, MNIST_INFO, SAVE, MODEL_PATH, TEST_LOSS_FIG_PATH, TRAIN_LOSS_FIG_PATH
 from load_data import load_data
 
 
@@ -24,6 +25,7 @@ def train_epoch(model, optimizer, data_loader, loss_history):
             print('[' +  '{:5}'.format(i * len(data)) + '/' + '{:5}'.format(total_samples) +
                   ' (' + '{:3.0f}'.format(100 * i / len(data_loader)) + '%)]  Loss: ' +
                   '{:6.4f}'.format(loss.item()))
+        
             loss_history.append(loss.item())
 
 
@@ -75,6 +77,25 @@ def train(train_loader, test_loader, patch_size, dim, depth, heads, mlp_dim, lr)
 
     if SAVE:
         torch.save(model.state_dict(), MODEL_PATH)
+
+    save_fig(train_loss_history, test_loss_history, TRAIN_LOSS_FIG_PATH, TEST_LOSS_FIG_PATH)
+
+
+def save_fig(train_loss_history, test_loss_history, train_path, test_path):
+    x1 = list(range(1, len(train_loss_history)+1))
+    x2 = list(range(1, len(test_loss_history)+1))
+    plt.xlabel('epochs')
+    plt.ylabel('loss')
+    plt.plot(x1, train_loss_history, 'r', label='train_loss')
+    # plt.show()
+    plt.savefig(train_path)
+
+    plt.clf()
+    plt.xlabel('epochs')
+    plt.ylabel('loss')
+    plt.plot(x2, test_loss_history, 'b', label='test_loss')
+    # plt.show()
+    plt.savefig(test_path)
 
 
 if __name__ == '__main__':

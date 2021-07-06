@@ -26,3 +26,7 @@ LR = 0.003
 # save model
 SAVE = True
 MODEL_PATH = os.path.join(os.getcwd(), 'parameters.pkl')
+
+# result image save path
+TRAIN_LOSS_FIG_PATH = os.path.join(os.getcwd(), 'train-loss.png')
+TEST_LOSS_FIG_PATH = os.path.join(os.getcwd(), 'test-loss.png')
