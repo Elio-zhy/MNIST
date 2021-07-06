@@ -144,3 +144,6 @@ MNIST
 *.fls
 *.fdb_latexmk
 *.out
+
+# saved model
+*.pkl

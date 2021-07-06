@@ -84,7 +84,7 @@ def train(train_loader, test_loader, patch_size, dim, depth, heads, mlp_dim, lr)
 def save_fig(train_loss_history, test_loss_history, train_path, test_path):
     x1 = list(range(1, len(train_loss_history)+1))
     x2 = list(range(1, len(test_loss_history)+1))
-    plt.xlabel('epochs')
+    plt.xlabel('')
     plt.ylabel('loss')
     plt.plot(x1, train_loss_history, 'r', label='train_loss')
     # plt.show()
